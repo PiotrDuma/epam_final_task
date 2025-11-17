@@ -11,13 +11,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoginPageTests extends WebDriverProvider{
+    private static final Logger log = LoggerFactory.getLogger(LoginPageTests.class);
 
     //UC-1 test login form with empty credentials
     @ParameterizedTest
     @MethodSource("com.github.Piotr_Duma.DataProvider#getInvalidUserCredentials")
     public void loginFormWithEmptyCredentialsShouldReturnErrorMessage(User user){
+      log.info("Start UC-1 parametrized test");
       String expected = "Username is required";
       String expectedXPath = "//*[contains(text(), \""+ expected+"\")]";
 
@@ -43,6 +47,7 @@ public class LoginPageTests extends WebDriverProvider{
    @ParameterizedTest
    @MethodSource("com.github.Piotr_Duma.DataProvider#getInvalidUserCredentials")
    public void loginFormWithoutPasswordShouldReturnErrorMessage(User user){
+     log.info("Start UC-2 parametrized test");
      String expected = "Password is required";
      String expectedXpathLocator = "//*[contains(text(), '"+ expected+"')]";
 
@@ -66,6 +71,7 @@ public class LoginPageTests extends WebDriverProvider{
    @ParameterizedTest
    @MethodSource("com.github.Piotr_Duma.DataProvider#getValidUserCredentials")
    public void loginFormShouldReturnValidObject(User user){
+     log.info("Start UC-3 parametrized test");
      String expected = "Swag Labs";
      String expectedXpathLocator = "//*[contains(text(), \""+ expected+"\")]";
      new LoginPage(this.webDriver)
