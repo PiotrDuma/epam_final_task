@@ -8,16 +8,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SingletonWebDriver {
+  private static final Logger logger = LoggerFactory.getLogger(SingletonWebDriver.class);
   private static final String LOG_INFO = "Init WebDriver: %s";
   private static final String SYSTEM_BROWSER_PROPERTY = "value.browser";
-  private static final Logger logger = LoggerFactory.getLogger(SingletonWebDriver.class);
   private static WebDriver webDriver;
 
   private SingletonWebDriver(){}
 
   public static WebDriver getWebDriver(){
     if (webDriver == null){
-      switch (System.getProperty(SYSTEM_BROWSER_PROPERTY)) {
+      switch ("firefox") {//System.getProperty(SYSTEM_BROWSER_PROPERTY
         case "firefox" -> {
           logger.info(String.format(LOG_INFO, "Firefox WebDriver"));
           WebDriverManager.firefoxdriver().setup();
