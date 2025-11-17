@@ -16,6 +16,8 @@ public class ChromeConfig {
 
     Map<String, Object> prefs = new HashMap<>();
     prefs.put("credentials_enable_service", false);
+    prefs.put("profile.autofill_profile_enabled", false);
+    prefs.put("profile.autofill_credit_card_enabled", false);
     prefs.put("profile.password_manager_enabled", false);
     prefs.put("profile.password_manager_leak_detection", false);
 
@@ -24,6 +26,9 @@ public class ChromeConfig {
 
     options.addArguments("--disable-features=PasswordManager,PasswordManagerOnboarding");
     options.addArguments("--disable-blink-features=AutomationControlled");
+    options.addArguments("--disable-single-click-autofill"); //disable autofill fields
+    options.addArguments("--disable-blink-features=AutomationControlled");
+    options.addArguments("--disable-save-password-bubble");
     return options;
   }
 }

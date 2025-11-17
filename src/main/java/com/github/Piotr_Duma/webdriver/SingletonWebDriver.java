@@ -1,5 +1,6 @@
 package com.github.Piotr_Duma.webdriver;
 
+import com.github.Piotr_Duma.utils.ApplicationPropertiesReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,14 +11,14 @@ import org.slf4j.LoggerFactory;
 public class SingletonWebDriver {
   private static final Logger logger = LoggerFactory.getLogger(SingletonWebDriver.class);
   private static final String LOG_INFO = "Init WebDriver: %s";
-  private static final String SYSTEM_BROWSER_PROPERTY = "value.browser";
+  private static final String SYSTEM_BROWSER_PROPERTY = "browser";
   private static WebDriver webDriver;
 
   private SingletonWebDriver(){}
 
   public static WebDriver getWebDriver(){
     if (webDriver == null){
-      switch ("firefox") {//System.getProperty(SYSTEM_BROWSER_PROPERTY
+      switch (ApplicationPropertiesReader.getProperty(SYSTEM_BROWSER_PROPERTY)) {
         case "firefox" -> {
           logger.info(String.format(LOG_INFO, "Firefox WebDriver"));
           WebDriverManager.firefoxdriver().setup();
