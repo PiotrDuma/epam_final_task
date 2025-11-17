@@ -51,11 +51,13 @@ public class LoginPage extends AbstractWebPage {
 
   public LoginPage clearLoginInput(){
     loginField.clear();
+    fillElementWithText(loginField, "");
     return this;
   }
 
   public LoginPage clearPasswordField(){
     passwordField.clear();
+    fillElementWithText(passwordField, "");
     return this;
   }
 
@@ -66,6 +68,6 @@ public class LoginPage extends AbstractWebPage {
 
   public AbstractWebPage proceedLogin(){
     clickElement(loginButton);
-    return this;
+    return new DashboardPage(driver);
   }
 }

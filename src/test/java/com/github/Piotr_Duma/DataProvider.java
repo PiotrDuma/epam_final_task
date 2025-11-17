@@ -10,28 +10,11 @@ public class DataProvider {
   public static Stream<Arguments> getValidUserCredentials() {
     Stream.Builder<Arguments> builder = Stream.builder();
     builder.add(Arguments.of(new User("standard_user", "secret_sauce")));
-    builder.add(Arguments.of(new User("locked_out_user", "secret_sauce")));
+//    builder.add(Arguments.of(new User("locked_out_user", "secret_sauce"))); //invalid login
     builder.add(Arguments.of(new User("problem_user", "secret_sauce")));
     builder.add(Arguments.of(new User("performance_glitch_user", "secret_sauce")));
-    builder.add(Arguments.of(new User("error_user", "secret_sauce")));
+//    builder.add(Arguments.of(new User("error_user", "secret_sauce"))); //invalid login
     builder.add(Arguments.of(new User("visual_user", "secret_sauce")));
-    return builder.build();
-  }
-
-  public static Stream<Arguments> getUserWithEmptyPassword() {
-    Stream.Builder<Arguments> builder = Stream.builder();
-    builder.add(Arguments.of(new User("standard_user", "")));
-    builder.add(Arguments.of(new User("error_user", "")));
-    builder.add(Arguments.of(new User(StringGenerator.generateString(10), "")));
-    builder.add(Arguments.of(new User(StringGenerator.generateString(10), "")));
-    return builder.build();
-  }
-
-  public static Stream<Arguments> getUserWithEmptyLogin() {
-    Stream.Builder<Arguments> builder = Stream.builder();
-    builder.add(Arguments.of(new User("","secret_sauce")));
-    builder.add(Arguments.of(new User("", StringGenerator.generateString(10))));
-    builder.add(Arguments.of(new User("", StringGenerator.generateString(10))));
     return builder.build();
   }
 

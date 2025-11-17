@@ -26,7 +26,7 @@ public class SingletonWebDriver {
         case "chrome" -> {
           logger.info(String.format(LOG_INFO, "Chrome WebDriver"));
           WebDriverManager.chromedriver().setup();
-          webDriver = new ChromeDriver();
+          webDriver = new ChromeDriver(ChromeConfig.setUp());
         }
         default -> {
           logger.info(String.format(LOG_INFO, "DEFAULT DRIVER: Firefox WebDriver"));
