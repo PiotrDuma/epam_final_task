@@ -2,22 +2,26 @@ package com.github.Piotr_Duma.utils;
 
 import java.security.SecureRandom;
 import java.util.Base64;
+import java.util.Random;
 
 /**
  * Random string generator
  */
 public class StringGenerator {
-    private static final SecureRandom secureRandom = new SecureRandom();
-    private static final Base64.Encoder base64Encoder = Base64.getUrlEncoder();
+  private static final String ALPHANUMERIC_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
   /**
+   * Get a random string with given length
    *
-   * @param length cannot be greater than 32
+   * @param length of the string
    * @return random string with given length
    */
   public static String generateString(int length) {
-      byte[] randomBytes = new byte[24];
-      secureRandom.nextBytes(randomBytes);
-      return base64Encoder.encodeToString(randomBytes).substring(0, length);
+    Random random = new Random();
+    StringBuilder builder = new StringBuilder(length);
+    for(int i = 0; i<length; i++){
+      builder.append(ALPHANUMERIC_STRING.charAt(random.nextInt(ALPHANUMERIC_STRING.length())));
+    }
+  return builder.toString();
   }
 }
