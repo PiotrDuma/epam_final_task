@@ -1,8 +1,9 @@
-package com.github.Piotr_Duma;
+package com.github.Piotr_Duma.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.Piotr_Duma.page.LoginPage;
+import com.github.Piotr_Duma.providers.WebDriverProvider;
 import com.github.Piotr_Duma.utils.User;
 import java.time.Duration;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LoginPageTests extends WebDriverProvider{
+public class LoginPageTests extends WebDriverProvider {
     private static final Logger log = LoggerFactory.getLogger(LoginPageTests.class);
 
     //UC-1 test login form with empty credentials

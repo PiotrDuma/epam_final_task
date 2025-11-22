@@ -1,4 +1,4 @@
-package com.github.Piotr_Duma;
+package com.github.Piotr_Duma.providers;
 
 import com.github.Piotr_Duma.utils.StringGenerator;
 import com.github.Piotr_Duma.utils.User;
