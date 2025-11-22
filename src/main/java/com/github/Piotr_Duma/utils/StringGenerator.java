@@ -1,7 +1,5 @@
 package com.github.Piotr_Duma.utils;
 
-import java.security.SecureRandom;
-import java.util.Base64;
 import java.util.Random;
 
 /**
