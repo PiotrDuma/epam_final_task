@@ -11,11 +11,11 @@ import org.slf4j.LoggerFactory;
 
 public class LoginPage extends AbstractWebPage {
   private static final Logger log = LoggerFactory.getLogger(LoginPage.class);
-  private static final String URL = "https://www.saucedemo.com/";
-
+  private static final String URL_VARIABLE = "page.login.url";
   private static final String LOGIN_LOCATOR = "//input[@id=\"user-name\"]";
   private static final String PASSWORD_LOCATOR = "//input[@id=\"password\"]";
   private static final String BUTTON_LOCATOR = "//input[@id=\"login-button\"]";
+  private String url;
 
   @FindBy(xpath = LOGIN_LOCATOR)
   private WebElement loginField;
@@ -35,7 +35,8 @@ public class LoginPage extends AbstractWebPage {
   @Override
   public LoginPage openPage() {
     log.info("Process open login page");
-    driver.navigate().to(URL);
+    this.url = loadURLVariable(URL_VARIABLE);
+    driver.navigate().to(url);
     return this;
   }
 

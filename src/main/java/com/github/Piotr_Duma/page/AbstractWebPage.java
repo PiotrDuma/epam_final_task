@@ -1,5 +1,6 @@
 package com.github.Piotr_Duma.page;
 
+import com.github.Piotr_Duma.utils.ApplicationPropertyReader;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,5 +28,13 @@ public abstract class AbstractWebPage {
     wait.until(ExpectedConditions.visibilityOf(element));
     element.clear();
     element.sendKeys(text);
+  }
+
+  /**
+   * Method always returns a String variable, otherwise it throws a runtime exception.
+   * @return non null String variable.
+   */
+  protected String loadURLVariable(String urlVariableName) {
+    return ApplicationPropertyReader.getProperty(urlVariableName);
   }
 }
