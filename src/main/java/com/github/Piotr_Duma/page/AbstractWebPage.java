@@ -4,6 +4,7 @@ import com.github.Piotr_Duma.utils.ApplicationPropertyReader;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,6 +16,7 @@ public abstract class AbstractWebPage {
   protected AbstractWebPage(WebDriver driver) {
     this.driver = driver;
     this.wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS));
+    PageFactory.initElements(driver, this);
   }
 
   public abstract AbstractWebPage openPage();

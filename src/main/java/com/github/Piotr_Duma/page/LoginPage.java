@@ -5,7 +5,6 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +14,6 @@ public class LoginPage extends AbstractWebPage {
   private static final String LOGIN_LOCATOR = "//input[@id=\"user-name\"]";
   private static final String PASSWORD_LOCATOR = "//input[@id=\"password\"]";
   private static final String BUTTON_LOCATOR = "//input[@id=\"login-button\"]";
-  private String url;
 
   @FindBy(xpath = LOGIN_LOCATOR)
   private WebElement loginField;
@@ -28,14 +26,13 @@ public class LoginPage extends AbstractWebPage {
 
   public LoginPage(WebDriver driver) {
     super(driver);
-    PageFactory.initElements(driver, this);
     log.info("Init login page");
   }
 
   @Override
   public LoginPage openPage() {
     log.info("Process open login page");
-    this.url = loadURLVariable(URL_VARIABLE);
+    String url = loadURLVariable(URL_VARIABLE);
     driver.navigate().to(url);
     return this;
   }
