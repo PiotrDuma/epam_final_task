@@ -43,11 +43,6 @@ public class LoginPage extends AbstractWebPage {
     return this;
   }
 
-  public LoginPage setLoginFieldText(String login){
-    fillElementWithText(loginField, login);
-    return this;
-  }
-
   public LoginPage clearLoginInput(){
     loginField.clear();
     return this;
@@ -58,18 +53,8 @@ public class LoginPage extends AbstractWebPage {
     return this;
   }
 
-  public LoginPage setPasswordFieldText(String password){
-    fillElementWithText(passwordField, password);
-    return this;
-  }
-
   public AbstractWebPage proceedLogin(){
     clickElement(loginButton);
     return new DashboardPage(driver);
-  }
-
-  public LoginPage implicitWait(){
-    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-    return this;
   }
 }
