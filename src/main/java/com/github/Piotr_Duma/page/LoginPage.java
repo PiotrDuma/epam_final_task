@@ -61,7 +61,7 @@ public class LoginPage extends AbstractWebPage {
   }
 
   public LoginPage setPasswordFieldText(String password){
-    fillElementWithText(loginField, password);
+    fillElementWithText(passwordField, password);
     return this;
   }
 

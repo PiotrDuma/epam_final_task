@@ -20,7 +20,7 @@ public class LoginPageTests extends WebDriverProvider {
 
     //UC-1 test login form with empty credentials
     @ParameterizedTest
-    @MethodSource("com.github.Piotr_Duma.DataProvider#getInvalidUserCredentials")
+    @MethodSource("com.github.Piotr_Duma.providers.DataProvider#getInvalidUserCredentials")
     public void loginFormWithEmptyCredentialsShouldReturnErrorMessage(User user){
       log.info("Start UC-1 parametrized test");
       String expected = "Username is required";
@@ -46,7 +46,7 @@ public class LoginPageTests extends WebDriverProvider {
 
     //UC-2 login with removed password
    @ParameterizedTest
-   @MethodSource("com.github.Piotr_Duma.DataProvider#getInvalidUserCredentials")
+   @MethodSource("com.github.Piotr_Duma.providers.DataProvider#getInvalidUserCredentials")
    public void loginFormWithoutPasswordShouldReturnErrorMessage(User user){
      log.info("Start UC-2 parametrized test");
      String expected = "Password is required";
@@ -70,7 +70,7 @@ public class LoginPageTests extends WebDriverProvider {
 
    //UC-3 valid credentials and proceed to the dashboard page
    @ParameterizedTest
-   @MethodSource("com.github.Piotr_Duma.DataProvider#getValidUserCredentials")
+   @MethodSource("com.github.Piotr_Duma.providers.DataProvider#getValidUserCredentials")
    public void loginFormShouldReturnValidObject(User user){
      log.info("Start UC-3 parametrized test");
      String expected = "Swag Labs";
