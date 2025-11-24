@@ -1,7 +1,5 @@
 package com.github.Piotr_Duma.utils;
 
-import java.util.Objects;
-
 public class User {
   private String login;
   private String password;
