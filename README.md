@@ -3,7 +3,7 @@ WebDriver final task in Selenium Framework
 
 ### Test cases
 
-All test cases has been implemented. While firefox tests passes fine, the chrome driver meets some kind of sync issues and it doesn't clear input fields. Even explicit wait from WebDriverWait doesn't help.
+All test cases has been implemented. The first version of the task is available on the first_release branch. The review_fixes branch, which is merged to main branch, contains updated project with fixed bugs and project issues.
 
 ### Test run
 
@@ -27,3 +27,12 @@ cd epam_final_task
 mvn -Dbrowser=firefox clean test
 ```
 
+### Update changes:
+
+- change singleton WebDriver factory: replace static singleton WebDriver instance with ThreadLocal webdriver provider for parallel testing,
+- fix input field clear() method for chrome browser,
+- update and clean test cases implementation,
+- restore application.properties load class and extend it with maven parameter loader,
+- exclude URL class property to application.property variable,
+- refactor StringGenerator, simplifty User and DataProvider classes,
+- update project structure;
