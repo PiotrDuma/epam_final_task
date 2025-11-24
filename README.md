@@ -7,9 +7,11 @@ All test cases has been implemented. The first version of the task is available 
 
 ### Test run
 
-Application contains single application property with attribute 'browser' to set web driver to run tests.
+The application contains application property with the 'browser' attribute to set up web driver configuration for running tests. The url property is hardcoded address of tested login page.
 ```
+#properties:
 browser=firefox
+page.login.url=https://www.saucedemo.com/
 ```
 
 How to run project:
