@@ -1,7 +1,6 @@
 package com.github.Piotr_Duma.page;
 
 import com.github.Piotr_Duma.utils.User;
-import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -44,12 +43,12 @@ public class LoginPage extends AbstractWebPage {
   }
 
   public LoginPage clearLoginInput(){
-    loginField.clear();
+    clearInputField(loginField);
     return this;
   }
 
   public LoginPage clearPasswordField(){
-    passwordField.clear();
+    clearInputField(passwordField);
     return this;
   }
 

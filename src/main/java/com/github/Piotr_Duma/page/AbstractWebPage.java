@@ -2,12 +2,17 @@ package com.github.Piotr_Duma.page;
 
 import com.github.Piotr_Duma.utils.ApplicationPropertyReader;
 import java.time.Duration;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+/**
+ * clean element for input field is required to workaround due to chromedriver issue:
+ * https://github.com/SeleniumHQ/selenium/issues/6741#issuecomment-447991185
+ */
 public abstract class AbstractWebPage {
   protected static final int WAIT_TIMEOUT_SECONDS = 10;
   protected WebDriver driver;
@@ -30,6 +35,11 @@ public abstract class AbstractWebPage {
     wait.until(ExpectedConditions.visibilityOf(element));
     element.clear();
     element.sendKeys(text);
+  }
+
+  protected void clearInputField(WebElement element){
+    element.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+    wait.until(ExpectedConditions.attributeToBe(element, "value", ""));
   }
 
   /**
