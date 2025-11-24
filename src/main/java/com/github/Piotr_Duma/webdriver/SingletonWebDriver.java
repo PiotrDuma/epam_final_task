@@ -10,7 +10,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ThreadLocal implementation is required for singleton WebDriver parallel testing.
+ * WebDriver's factory class for single thread WebDriver instances with a given browser parameter.
+ *
+ * ThreadLocal implementation is required for singleton WebDriver parallel testing and thread
+ * synchronization..
  */
 public class SingletonWebDriver {
   private static final Logger logger = LoggerFactory.getLogger(SingletonWebDriver.class);

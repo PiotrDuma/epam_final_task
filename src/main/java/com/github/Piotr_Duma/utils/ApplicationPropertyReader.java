@@ -6,6 +6,11 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * ApplicationPropertyReader is a class for reading configuration data specified as application
+ * variables. The maven build (-D flag) properties have higher priority than the variables defined
+ * in the application.properties file.
+ */
 public class ApplicationPropertyReader {
   private static final Logger log = LoggerFactory.getLogger(ApplicationPropertyReader.class);
   private static final String MESSAGE = "Failed to load 'application.properties' file.";

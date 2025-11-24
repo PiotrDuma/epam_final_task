@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
+ * Base class for Page Object Model.
+ *
  * clean element for input field is required to workaround due to chromedriver issue:
  * https://github.com/SeleniumHQ/selenium/issues/6741#issuecomment-447991185
  */
@@ -37,6 +39,12 @@ public abstract class AbstractWebPage {
     element.sendKeys(text);
   }
 
+  /**
+   * Implementation of clear() method workaround for chrome WebDriver. The clear() method for
+   * webelements worked fine with a firefox browser.
+   *
+   * @param element input field to be cleared
+   */
   protected void clearInputField(WebElement element){
     element.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
     wait.until(ExpectedConditions.attributeToBe(element, "value", ""));
